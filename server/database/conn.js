@@ -10,7 +10,10 @@ async function connect(){
 
     mongoose.set('strictQuery', true)
     // const db = await mongoose.connect(getUri);
-    const db = await mongoose.connect(process.env.ATLAS_URI);
+    const db = await mongoose.connect(getUri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
     console.log("Database Connected")
     return db;
 }
