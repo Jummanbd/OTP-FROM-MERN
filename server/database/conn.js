@@ -8,7 +8,7 @@ async function connect(){
     const mongod = await MongoMemoryServer.create();
     const getUri = mongod.getUri();
 
-    mongoose.set('strictQuery', true)
+   mongoose.set("strictQuery", false);
     // const db = await mongoose.connect(getUri);
     const db = await mongoose.connect(process.env.ATLAS_URI, {
         useNewUrlParser: true,
