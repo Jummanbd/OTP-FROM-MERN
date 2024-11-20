@@ -16,7 +16,7 @@ app.disable('x-powered-by'); // less hackers know about our stack
 
 // port 
 
-const PORT = process.env.PORT;
+let port = process.env.PORT;
 
 /** HTTP GET Request */
 app.get('/', (req, res) => {
@@ -30,8 +30,8 @@ app.use('/api', router)
 /** start server only when we have valid connection */
 connect().then(() => {
     try {
-        app.listen(PORT, () => {
-            console.log(`Server connected to http://localhost:${PORT}`);
+        app.listen(port, () => {
+            console.log(`Server connected to http://localhost:${port}`);
         })
     } catch (error) {
         console.log('Cannot connect to the server')
