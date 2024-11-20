@@ -6,7 +6,7 @@ import connect from './database/conn.js';
 import router from './router/route.js';
 dotenv.config()
 const app = express();
-
+const port = process.env.PORT || 4000;
 /** middlewares */
 app.use(express.json());
 app.use(cors());
@@ -16,7 +16,7 @@ app.disable('x-powered-by'); // less hackers know about our stack
 
 // port 
 
-let port = process.env.PORT;
+
 
 /** HTTP GET Request */
 app.get('/', (req, res) => {
